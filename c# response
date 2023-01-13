@@ -1,0 +1,39 @@
+using System;
+
+class TicTacToe
+{
+    //2D array to represent the game board
+    static char[,] gameBoard = new char[3,3] {
+        {' ', ' ', ' '},
+        {' ', ' ', ' '},
+        {' ', ' ', ' '}
+    };
+
+    //enum to represent the current player
+    enum Player { X, O }
+    static Player currentPlayer = Player.X;
+
+    //function to print the game board
+    static void printBoard()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                Console.Write(gameBoard[i,j] + " | ");
+            }
+            Console.WriteLine();
+            Console.WriteLine("---------");
+        }
+    }
+
+    //function to update the game board
+    static void updateBoard(int x, int y)
+    {
+        if (gameBoard[x, y] == ' ')
+        {
+            gameBoard[x, y] = currentPlayer == Player.X ? 'X' : 'O';
+            currentPlayer = currentPlayer == Player.X ? Player.O : Player.X;
+        }
+        else
+        {
