@@ -1,0 +1,22 @@
+try
+{
+    // Code to execute database operations (e.g. query, insert, update)
+}
+catch (SqlException ex)
+{
+    // Handle specific SQL errors
+    Console.WriteLine("An error occurred: " + ex.Message);
+}
+catch (Exception ex)
+{
+    // Handle general errors
+    Console.WriteLine("An error occurred: " + ex.Message);
+}
+finally
+{
+    // Close the database connection
+    if (conn != null)
+    {
+        conn.Close();
+    }
+}
